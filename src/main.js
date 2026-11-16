@@ -344,11 +344,11 @@ async function runConsole() {
   await sleep(350);
 
   const date = line('date');
-  await type(date, '2027. 05. 29  SAT', 40, false);
+  await type(date, '2027. 05. 29 (토) 오후 2시', 40, false);
   await sleep(150);
 
   const venue = line('date venue');
-  await type(venue, '의정부 경민웨딩홀', 70);
+  await type(venue, '의정부 경민컨벤션 아모리스홀', 70);
   await sleep(200);
 
   const prompt = line();
