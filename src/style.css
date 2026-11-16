@@ -171,3 +171,5 @@ html, body {
 @media (prefers-reduced-motion: reduce) {
   .hint, .hint .arrow, .cursor, .screen .names .heart { animation: none; }
 }
+
+.screen .venue { margin-top: -2px; color: #fff; text-shadow: 0 0 6px rgba(255, 255, 255, .3); }

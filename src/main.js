@@ -56,7 +56,9 @@ function layout() {
   view.height = H;
 
   // 최소 19 x 23 교차점이 화면에 들어가도록 정수 배율 선택
-  const s = Math.max(1, Math.floor(Math.min(W / 19, H / 23) / SP));
+  // 배율이 크면 정수로 맞춰 픽셀을 고르게, 작으면(저해상도 화면) 소수 배율로 칸 수 유지
+  const f = Math.min(W / 19, H / 23) / SP;
+  const s = f >= 4 ? Math.floor(f) : Math.max(1, f);
   const lowW = Math.ceil(W / s);
   const lowH = Math.ceil(H / s);
   const cols = Math.floor((lowW - SP) / SP) + 1;
@@ -343,6 +345,10 @@ async function runConsole() {
 
   const date = line('date');
   await type(date, '2027. 05. 29  SAT', 40, false);
+  await sleep(150);
+
+  const venue = line('date venue');
+  await type(venue, '의정부 경민웨딩홀', 70);
   await sleep(200);
 
   const prompt = line();
